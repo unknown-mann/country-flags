@@ -1,0 +1,133 @@
+@import-normalize;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Typography */
+  --family: 'Nunito Sans', sans-serif;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fw-light: 300;
+  --fw-normal: 600;
+  --fw-bold: 800;
+
+  /* Other */
+  --radii: 0.5rem;
+  --spinner-color: #dbdbdb;
+}
+
+body[data-theme='dark'] {
+  --colors-text: hsl(0, 0%, 100%);
+  --colors-bg: hsl(207, 26%, 17%);
+  --colors-ui-base: hsl(209, 23%, 22%);
+
+  --shadow: rgba(245, 245, 245, 0.2) 0 0 8px;
+}
+body[data-theme='light'] {
+  --colors-text: hsl(200, 15%, 8%);
+  --colors-bg: hsl(0, 0%, 98%);
+  --colors-ui-base: hsl(0, 0%, 100%);
+
+  --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--family);
+  color: var(--colors-text);
+  font-weight: var(--fw-light);
+  background-color: var(--colors-bg);
+}
+
+/* Spinner */
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.loader {
+  font-size: 10px;
+  margin: 10px;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  background: var(--spinner-color);
+  background: -moz-linear-gradient(left,
+      var(--spinner-color) 10%,
+      rgba(128, 0, 255, 0) 42%);
+  background: -webkit-linear-gradient(left,
+      var(--spinner-color) 10%,
+      rgba(128, 0, 255, 0) 42%);
+  background: -o-linear-gradient(left,
+      var(--spinner-color) 10%,
+      rgba(128, 0, 255, 0) 42%);
+  background: -ms-linear-gradient(left,
+      var(--spinner-color) 10%,
+      rgba(128, 0, 255, 0) 42%);
+  background: linear-gradient(to right,
+      var(--spinner-color) 10%,
+      rgba(128, 0, 255, 0) 42%);
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: var(--spinner-color);
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+
+.loader:after {
+  background: hsl(0, 0%, 98%);;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
