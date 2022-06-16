@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Spinner = ({ text = '', size = '5em' }) => {
-  const header = text ? <h2 style={{margin: 5}}>{text}</h2> : null
+  const header = text ? <h2 style={{ margin: 5 }}>{text}</h2> : null
   return (
     <div className="spinner">
       {header}

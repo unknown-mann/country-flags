@@ -27,12 +27,12 @@ export const HomePage: React.FC = () => {
     content = <h1>{error}</h1>
   } else if (status === 'succeeded') {
     content =
-      <List countries={countries}/>
+      <List countries={countries} />
   }
 
   return (
     <>
-      <Controls/>
+      <Controls />
       {content}
     </>
   );

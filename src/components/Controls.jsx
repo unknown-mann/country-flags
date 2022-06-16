@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 export const Controls = () => {
 
   const dispatch = useDispatch()
-  
+
   const [region, setRegion] = useState('');
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export const Controls = () => {
 
   return (
     <Wrapper>
-      <Search/>
+      <Search />
       <CustomSelect
         options={options}
         placeholder="Filter by Region"

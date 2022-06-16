@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
 import type { CountriesType } from "../types/Types";
-import type {FilterType} from "../pages/HomePage/filterSlice"
+import type { FilterType } from "../pages/HomePage/filterSlice"
 
 type StateType = {
     countries: CountriesType,

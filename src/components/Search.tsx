@@ -45,9 +45,9 @@ export const Search = () => {
 
   useEffect(() => {
     setSearch()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, searchQuery])
-  
+
   return (
     <InputContainer>
       <IoSearch />

@@ -27,7 +27,7 @@ const Wrapper = styled.section`
 export const List: React.FC<CountriesType> = ({ countries }) => {
 
   const navigate = useNavigate()
-  
+
   if (!countries.length) {
     return (
       <h1>Country not found</h1>
@@ -37,33 +37,33 @@ export const List: React.FC<CountriesType> = ({ countries }) => {
   return (
     <Wrapper>
       {countries.map((c) => {
-          const countryInfo = {
-            img: c.flag,
-            name: c.name,
-            info: [
-              {
-                title: 'Population',
-                description: c.population.toLocaleString(),
-              },
-              {
-                title: 'Region',
-                description: c.region,
-              },
-              {
-                title: 'Capital',
-                description: c.capital,
-              },
-            ],
-          };
+        const countryInfo = {
+          img: c.flag,
+          name: c.name,
+          info: [
+            {
+              title: 'Population',
+              description: c.population.toLocaleString(),
+            },
+            {
+              title: 'Region',
+              description: c.region,
+            },
+            {
+              title: 'Capital',
+              description: c.capital,
+            },
+          ],
+        };
 
-          return (
-            <Card
-              key={c.name}
-              onClick={() => { navigate(`/country/${c.alpha3Code}`) }}
-              {...countryInfo}
-            />
-          );
-        })}
+        return (
+          <Card
+            key={c.name}
+            onClick={() => { navigate(`/country/${c.alpha3Code}`) }}
+            {...countryInfo}
+          />
+        );
+      })}
     </Wrapper>
   )
 };

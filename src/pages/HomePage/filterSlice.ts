@@ -6,8 +6,8 @@ export type FilterType = {
 }
 
 const initialState: FilterType = {
-    sort: '',
-    search: ''
+  sort: '',
+  search: ''
 };
 
 const filterSlice = createSlice({
@@ -15,10 +15,10 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     changeSort: (state, action: PayloadAction<string>) => {
-        state.sort = action.payload
+      state.sort = action.payload
     },
     changeSearch: (state, action: PayloadAction<string>) => {
-        state.search = action.payload
+      state.search = action.payload
     }
   },
 });
