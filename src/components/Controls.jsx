@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Search } from './Search';
 import { CustomSelect } from './CustomSelect';
-import { changeSort } from '../pages/HomePage/filterSlice';
-import { useDispatch } from 'react-redux';
+import { changeSort } from '../pages/HomePage/filter/filterSlice';
+import { useAppDispatch } from '../hooks/hooks';
+import { useSearchParams } from 'react-router-dom';
 
 const options = [
   { value: 'Africa', label: 'Africa' },
@@ -27,25 +28,43 @@ const Wrapper = styled.div`
 
 export const Controls = () => {
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
-  const [region, setRegion] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams()
+  const search = searchParams.get('search') || ''
+  const region = searchParams.get('region') || ''
+
+  const params = useRef({})
+
+  const [regionQuery, setRegionQuery] = useState(region);
+  const [searchQuery, setSearchQuery] = useState(search);
 
   useEffect(() => {
-    const regionValue = region?.value || '';
+    // const regionValue = regionQuery?.value || '';
+    const regionValue = regionQuery?.value || regionQuery;
     dispatch(changeSort(regionValue))
-  }, [dispatch, region])
+    if (regionValue) {
+      params.current.region = regionValue
+    } else {
+      delete params.current.region
+    }
+  }, [dispatch, regionQuery])
+
+  useEffect(() => {
+    setSearchParams(params.current)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [regionQuery, searchQuery])
 
   return (
     <Wrapper>
-      <Search />
+      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} params={params} />
       <CustomSelect
         options={options}
-        placeholder="Filter by Region"
+        placeholder={region || "Filter by Region"}
         isClearable
         isSearchable={false}
-        value={region}
-        onChange={setRegion}
+        value={regionQuery}
+        onChange={setRegionQuery}
       />
     </Wrapper>
   );

@@ -4,7 +4,7 @@ import { Controls } from '../../components/Controls';
 import { fetchCountries } from './countriesSlice';
 import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
 import { Spinner } from '../../components/Spinner';
-import { selectFilteredCountries } from '../../App/selectors';
+import { selectFilteredCountries } from './filter/selectors';
 
 export const HomePage: React.FC = () => {
 

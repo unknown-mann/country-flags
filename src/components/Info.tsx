@@ -4,6 +4,7 @@ import { CountryType } from '../types/Types';
 
 const Wrapper = styled.section`
   margin-top: 3rem;
+  // margin-bottom: 3rem;
   width: 100%;
   display: grid;
   grid-template-columns: 100%;

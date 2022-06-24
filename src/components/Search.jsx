@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { IoSearch } from 'react-icons/io5';
-import { useEffect, useState } from 'react';
-import { changeSearch } from '../pages/HomePage/filterSlice';
+import { useEffect } from 'react';
+import { changeSearch } from '../pages/HomePage/filter/filterSlice';
 import { useDebounce } from '../App/utils/useDebounce';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../hooks/hooks';
 
 const InputContainer = styled.label`
   background-color: var(--colors-ui-base);
@@ -33,11 +33,9 @@ const Input = styled.input.attrs({
   background-color: var(--colors-ui-base);
 `;
 
-export const Search = () => {
+export const Search = ({ searchQuery, setSearchQuery, params }) => {
 
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const setSearch = useDebounce(() => {
     dispatch(changeSearch(searchQuery))
@@ -45,6 +43,11 @@ export const Search = () => {
 
   useEffect(() => {
     setSearch()
+    if (searchQuery) {
+      params.current.search = searchQuery
+    } else {
+      delete params.current.search
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, searchQuery])
 
