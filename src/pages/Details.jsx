@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import { useAppSelector } from '../hooks/hooks';
 import { IoArrowBack } from 'react-icons/io5';
 import { Button } from '../components/Button';
 import { Info } from '../components/Info';
-import { useAppSelector } from '../hooks/hooks';
 
 export const Details = () => {
 

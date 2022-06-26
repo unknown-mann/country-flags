@@ -1,6 +1,6 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { IoSearch } from 'react-icons/io5';
-import { useEffect } from 'react';
 import { changeSearch } from '../pages/HomePage/filter/filterSlice';
 import { useDebounce } from '../App/utils/useDebounce';
 import { useAppDispatch } from '../hooks/hooks';
@@ -37,6 +37,8 @@ export const Search = ({ searchQuery, setSearchQuery, params }) => {
 
   const dispatch = useAppDispatch()
 
+  const handleSearchQuery = e => setSearchQuery(e.target.value)
+
   const setSearch = useDebounce(() => {
     dispatch(changeSearch(searchQuery))
   }, 500)
@@ -54,7 +56,7 @@ export const Search = ({ searchQuery, setSearchQuery, params }) => {
   return (
     <InputContainer>
       <IoSearch />
-      <Input onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery} />
+      <Input onChange={handleSearchQuery} value={searchQuery} />
     </InputContainer>
   );
 };

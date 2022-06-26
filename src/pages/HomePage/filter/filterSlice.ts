@@ -14,10 +14,10 @@ const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    changeSort: (state, action: PayloadAction<string>) => {
+    changeSort(state, action: PayloadAction<string>) {
       state.sort = action.payload
     },
-    changeSearch: (state, action: PayloadAction<string>) => {
+    changeSearch(state, action: PayloadAction<string>) {
       state.search = action.payload
     }
   },

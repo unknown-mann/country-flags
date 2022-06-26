@@ -8,8 +8,7 @@ import { selectFilteredCountries } from './filter/selectors';
 
 export const HomePage: React.FC = () => {
 
-  const status = useAppSelector(state => state.countries.status)
-  const error = useAppSelector(state => state.countries.error)
+  const {status, error} = useAppSelector(state => state.countries)
   const countries = useAppSelector(selectFilteredCountries)
   const dispatch = useAppDispatch()
 
@@ -24,7 +23,7 @@ export const HomePage: React.FC = () => {
   if (status === 'loading') {
     content = <Spinner text="Loading..." />
   } else if (status === 'rejected') {
-    content = <h1>{error}</h1>
+    content = <h1>Error: {error}</h1>
   } else if (status === 'succeeded') {
     content =
       <List countries={countries} />

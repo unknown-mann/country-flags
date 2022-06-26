@@ -1,6 +1,6 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Card } from './Card';
-import { useNavigate } from 'react-router-dom';
 import { CountriesType } from '../types/Types';
 
 const Wrapper = styled.section`

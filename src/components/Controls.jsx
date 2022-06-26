@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Search } from './Search';
 import { CustomSelect } from './CustomSelect';
 import { changeSort } from '../pages/HomePage/filter/filterSlice';
 import { useAppDispatch } from '../hooks/hooks';
-import { useSearchParams } from 'react-router-dom';
+
 
 const options = [
   { value: 'Africa', label: 'Africa' },
