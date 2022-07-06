@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Search } from './Search';
 import { CustomSelect } from './CustomSelect';
-import { changeSort } from '../pages/HomePage/filter/filterSlice';
+import { changeSort } from '../App/filter/filterSlice';
 import { useAppDispatch } from '../hooks/hooks';
 
 
@@ -41,7 +41,6 @@ export const Controls = () => {
   const [searchQuery, setSearchQuery] = useState(search);
 
   useEffect(() => {
-    // const regionValue = regionQuery?.value || '';
     const regionValue = regionQuery?.value || regionQuery;
     dispatch(changeSort(regionValue))
     if (regionValue) {

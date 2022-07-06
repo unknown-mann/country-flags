@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { List } from '../../components/List';
-import { Controls } from '../../components/Controls';
-import { fetchCountries } from './countriesSlice';
-import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
-import { Spinner } from '../../components/Spinner';
-import { selectFilteredCountries } from './filter/selectors';
+import { List } from '../components/List';
+import { Controls } from '../components/Controls';
+import { fetchCountries } from '../App/countriesSlice';
+import { useAppSelector, useAppDispatch } from '../hooks/hooks';
+import { Spinner } from '../components/Spinner';
+import { selectFilteredCountries } from '../App/filter/selectors';
 
 export const HomePage: React.FC = () => {
 

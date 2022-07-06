@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, AnyAction, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { CountryType } from "../../types/Types";
+import { CountryType } from "../types/Types";
 
 type StateType = {
     countries: CountryType[],

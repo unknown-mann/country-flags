@@ -101,7 +101,7 @@ export const Info: React.FC<CountryType> = (props) => {
     population,
     region,
     subregion,
-    topLevelDomain,
+    topLevelDomain = [],
     currencies = [],
     languages = [],
     borders = [],

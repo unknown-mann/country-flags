@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import { IoSearch } from 'react-icons/io5';
-import { changeSearch } from '../pages/HomePage/filter/filterSlice';
-import { useDebounce } from '../App/utils/useDebounce';
+import { changeSearch } from '../App/filter/filterSlice';
+import { useDebounce } from '../utils/useDebounce';
 import { useAppDispatch } from '../hooks/hooks';
 
 const InputContainer = styled.label`
