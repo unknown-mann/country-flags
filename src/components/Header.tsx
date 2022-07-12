@@ -21,7 +21,7 @@ const Title = styled(Link).attrs({
   to: '/',
 })`
   color: var(--colors-text);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-lr);
   text-decoration: none;
   font-weight: var(--fw-bold);
 `;
@@ -30,7 +30,7 @@ const ModeSwitcher = styled.div`
   color: var(--colors-text);
   font-size: var(--fs-sm);
   cursor: pointer;
-  // font-weight: var(--fw-bold);
+  font-weight: var(--fw-normal);
   text-transform: capitalize;
 `;
 
@@ -49,11 +49,13 @@ export const Header: React.FC = () => {
         <Wrapper>
           <Title>Where is the world?</Title>
           <ModeSwitcher onClick={toggleMode}>
+            <div style={{display: 'inline-block', position: 'relative', top: '5px'}}>
             {mode === 'light' ? (
-              <IoMoonOutline size="14px" />
+              <IoMoonOutline size="20px" />
             ) : (
-              <IoMoon size="14px" />
-            )}{' '}
+              <IoMoon size="20px" />
+            )}
+            </div>
             <span style={{ marginLeft: '0.75rem' }}>{mode} Mode</span>
           </ModeSwitcher>
         </Wrapper>

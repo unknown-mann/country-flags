@@ -4,7 +4,6 @@ import { CountryType } from '../types/Types';
 
 const Wrapper = styled.section`
   margin-top: 3rem;
-  // margin-bottom: 3rem;
   width: 100%;
   display: grid;
   grid-template-columns: 100%;
@@ -88,6 +87,7 @@ const Tag = styled.span`
   box-shadow: var(--shadow);
   line-height: 1.5;
   cursor: pointer;
+  border-radius: var(--radii)
 `;
 
 export const Info: React.FC<CountryType> = (props) => {
