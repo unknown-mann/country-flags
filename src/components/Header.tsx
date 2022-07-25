@@ -1,8 +1,8 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
-
 import { Container } from './Container';
 
 const HeaderEl = styled.header`
@@ -34,7 +34,7 @@ const ModeSwitcher = styled.div`
   text-transform: capitalize;
 `;
 
-export const Header: React.FC = () => {
+export const Header: React.FC = React.memo(() => {
   const [mode, setMode] = useState('light');
 
   const toggleMode = () => setMode(mode === 'light' ? 'dark' : 'light');
@@ -49,12 +49,12 @@ export const Header: React.FC = () => {
         <Wrapper>
           <Title>Where is the world?</Title>
           <ModeSwitcher onClick={toggleMode}>
-            <div style={{display: 'inline-block', position: 'relative', top: '5px'}}>
-            {mode === 'light' ? (
-              <IoMoonOutline size="20px" />
-            ) : (
-              <IoMoon size="20px" />
-            )}
+            <div style={{ display: 'inline-block', position: 'relative', top: '5px' }}>
+              {mode === 'light' ? (
+                <IoMoonOutline size="20px" />
+              ) : (
+                <IoMoon size="20px" />
+              )}
             </div>
             <span style={{ marginLeft: '0.75rem' }}>{mode} Mode</span>
           </ModeSwitcher>
@@ -62,4 +62,4 @@ export const Header: React.FC = () => {
       </Container>
     </HeaderEl>
   );
-};
+});

@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import React from 'react';
+import { ChangeEvent, useEffect } from 'react';
 import styled from 'styled-components';
 import { IoSearch } from 'react-icons/io5';
 import { changeSearch } from '../App/filter/filterSlice';
@@ -32,11 +33,17 @@ const Input = styled.input.attrs({
   background-color: var(--colors-ui-base);
 `;
 
-export const Search = ({ searchQuery, setSearchQuery, params }) => {
+type PropsType = {
+  searchQuery: string,
+  setSearchQuery: (arg: string) => void,
+  params: any
+}
+
+export const Search: React.FC<PropsType> = React.memo(({ searchQuery, setSearchQuery, params }) => {
 
   const dispatch = useAppDispatch()
 
-  const handleSearchQuery = e => setSearchQuery(e.target.value)
+  const handleSearchQuery = (evt: ChangeEvent<HTMLInputElement>) => setSearchQuery(evt.target.value)
 
   const setSearch = useDebounce(() => {
     dispatch(changeSearch(searchQuery))
@@ -47,6 +54,7 @@ export const Search = ({ searchQuery, setSearchQuery, params }) => {
     if (searchQuery) {
       params.current.search = searchQuery
     } else {
+      // @ts-ignore
       delete params.current.search
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -58,4 +66,4 @@ export const Search = ({ searchQuery, setSearchQuery, params }) => {
       <Input onChange={handleSearchQuery} value={searchQuery} />
     </InputContainer>
   );
-};
+});

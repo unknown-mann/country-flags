@@ -8,11 +8,11 @@ const Wrapper = styled.main`
   }
 `;
 
-type MainType = {
+type PropsType = {
   children: JSX.Element
 }
 
-export const Main: React.FC<MainType> = ({ children }) => {
+export const Main: React.FC<PropsType> = ({ children }) => {
   return (
     <Wrapper>
       <Container>{children}</Container>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { List } from '../components/List';
 import { Controls } from '../components/Controls';
@@ -8,7 +9,7 @@ import { selectFilteredCountries } from '../App/filter/selectors';
 
 export const HomePage: React.FC = () => {
 
-  const {status, error} = useAppSelector(state => state.countries)
+  const { status, error } = useAppSelector(state => state.countries)
   const countries = useAppSelector(selectFilteredCountries)
   const dispatch = useAppDispatch()
 

@@ -21,8 +21,8 @@ export const fetchCountries = createAsyncThunk<CountryType[], undefined, { rejec
         try {
             const response = await axios.get(BASE_URL + 'all?fields=alpha3Code,name,nativeName,flag,independent,area,capital,population,region,subregion,topLevelDomain,currencies,languages,borders')
             return response.data
-        } catch (error: any) {
-            return rejectWithValue(error.message)
+        } catch (err) {
+            return rejectWithValue(err.message)
         }
     })
 

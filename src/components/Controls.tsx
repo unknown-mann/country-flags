@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
@@ -27,7 +28,7 @@ const Wrapper = styled.div`
   }
 `;
 
-export const Controls = () => {
+export const Controls = React.memo(() => {
 
   const dispatch = useAppDispatch()
 
@@ -41,11 +42,14 @@ export const Controls = () => {
   const [searchQuery, setSearchQuery] = useState(search);
 
   useEffect(() => {
+    // @ts-ignore
     const regionValue = regionQuery?.value || regionQuery;
     dispatch(changeSort(regionValue))
     if (regionValue) {
+      // @ts-ignore
       params.current.region = regionValue
     } else {
+      // @ts-ignore
       delete params.current.region
     }
   }, [dispatch, regionQuery])
@@ -64,8 +68,9 @@ export const Controls = () => {
         isClearable
         isSearchable={false}
         value={regionQuery}
+        // @ts-ignore
         onChange={setRegionQuery}
       />
     </Wrapper>
   );
-};
+});
