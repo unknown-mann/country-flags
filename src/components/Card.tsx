@@ -12,10 +12,18 @@ const Wrapper = styled.article`
 const CardImage = styled.img`
   display: block;
   width: 100%;
-  height: 150px;
+  height: 250px;
   object-fit: cover;
   object-position: center;
   box-shadow: var(--shadow);
+  @media (min-width: 767px) {
+    height: 200px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 150px;
+  }
+  
 `;
 
 const CardBody = styled.div`
