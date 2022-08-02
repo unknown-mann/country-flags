@@ -21,9 +21,12 @@ const Title = styled(Link).attrs({
   to: '/',
 })`
   color: var(--colors-text);
-  font-size: var(--fs-lr);
+  font-size: var(--fs-md);
   text-decoration: none;
   font-weight: var(--fw-bold);
+  @media (min-width: 1024px) {
+    font-size: var(--fs-lr);
+  }
 `;
 
 const ModeSwitcher = styled.div`
